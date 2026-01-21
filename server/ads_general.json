@@ -1,0 +1,302 @@
+{  
+
+  "en": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "de": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "es": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "fr": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "it": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "hi": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ja": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "pt": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ru": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "zh": {
+    "general_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "general_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  }
+}

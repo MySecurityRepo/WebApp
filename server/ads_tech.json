@@ -1,0 +1,302 @@
+{  
+
+  "en": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "de": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "es": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "fr": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "it": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "hi": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ja": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "pt": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ru": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "zh": {
+    "tech_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "tech_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  }
+}

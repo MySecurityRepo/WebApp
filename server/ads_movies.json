@@ -1,0 +1,302 @@
+{  
+
+  "en": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "de": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "es": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "fr": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "it": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "hi": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ja": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "pt": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ru": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "zh": {
+    "movies_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "movies_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,302 @@
+{  
+
+  "en": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "de": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "es": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "fr": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "it": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "hi": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ja": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "pt": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "ru": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  },
+  
+  "zh": {
+    "music_mobile_224x150": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_tablet_320x400": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ],
+    "music_desktop_500x630": [
+      {
+        "id": "",
+        "content": "",
+        "href": "",
+        "title": "",
+        "weight": 1
+      }
+    ]
+  }
+}
