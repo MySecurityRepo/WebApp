@@ -1,0 +1,4 @@
+Hola {{ username }}
+Gracias por registrarte en The Books Club. Por favor, confirma tu dirección de correo electrónico haciendo clic en este enlace: {{ link }}.
+¡Nos alegra mucho que te unas a nosotros y esperamos que disfrutes tu tiempo con nosotros!
+Si tienes alguna pregunta o duda, no dudes en contactarnos a esta dirección de correo electrónico: support@thebooksclub.com.

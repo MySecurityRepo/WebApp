@@ -1,0 +1,6 @@
+Bonjour {{ username }}
+Ceci est un e-mail de The Books Club.
+Nous sommes désolés que tu aies décidé de supprimer ton compte.
+En cliquant sur ce lien, tu finaliseras la demande de suppression de ton compte : {{ link }}.
+Si tu te reconnectes à l’application, le processus sera annulé et ton compte sera réactivé.
+Si tu as des questions ou des préoccupations, n’hésite pas à nous contacter à cette adresse e-mail : support@thebooksclub.com.

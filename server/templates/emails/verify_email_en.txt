@@ -1,0 +1,4 @@
+Hello {{ username }}
+Thanks for signing up to The Books Club. Please confirm your email address by clicking this link: {{ link }}.
+We are very happy to see you joining in and hope you will enjoy your time with us.
+If you have any questions or concerns don't esitate to contact us to this email address: support@thebooksclub.com.

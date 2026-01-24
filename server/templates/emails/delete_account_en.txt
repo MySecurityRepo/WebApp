@@ -1,0 +1,6 @@
+Hello {{ username }}
+This is an email from The Books Club.
+We are sorry you decided to delete your account.
+Clicking this link you will complete the process to request the cancellation of your account: {{ link }}.
+If you login again in the application the process will be stopped and your account will be re-enabled.
+If you have any questions or concerns don't esitate to contact us to this email address: support@thebooksclub.com.

@@ -1,0 +1,6 @@
+Hola {{ username }}
+Este es un correo electrónico de The Books Club.
+Lamentamos que hayas decidido eliminar tu cuenta.
+Al hacer clic en este enlace, completarás el proceso para solicitar la eliminación de tu cuenta: {{ link }}.
+Si vuelves a iniciar sesión en la aplicación, el proceso se detendrá y tu cuenta se reactivará.
+Si tienes alguna pregunta o duda, no dudes en contactarnos a este correo electrónico: support@thebooksclub.com.

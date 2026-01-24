@@ -1,0 +1,6 @@
+Olá, {{ username }}
+Este é um e-mail enviado por The Books Club.
+Lamentamos que você tenha decidido excluir sua conta.
+Ao clicar neste link, você concluirá o processo para solicitar a exclusão da sua conta: {{ link }}.
+Se você fizer login novamente no aplicativo, o processo será interrompido e sua conta será reativada.
+Se você tiver alguma dúvida ou problema, não hesite em entrar em contato conosco por este e-mail: support@thebooksclub.com.

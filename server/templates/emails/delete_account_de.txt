@@ -1,0 +1,6 @@
+Hallo {{ username }}
+Dies ist eine E-Mail von The Books Club.
+Es tut uns leid, dass du dich entschieden hast, dein Konto zu löschen.
+Wenn du auf diesen Link klickst, schließt du den Vorgang zur Beantragung der Kontolöschung ab: {{ link }}.
+Wenn du dich erneut in der Anwendung anmeldest, wird der Vorgang abgebrochen und dein Konto wieder aktiviert.
+Wenn du Fragen oder Anliegen hast, zögere nicht, uns unter dieser E-Mail-Adresse zu kontaktieren: support@thebooksclub.com.

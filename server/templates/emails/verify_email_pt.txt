@@ -1,0 +1,4 @@
+Olá, {{ username }}
+Obrigado por se cadastrar no The Books Club. Por favor, confirme seu endereço de e-mail clicando neste link: {{ link }}.
+Ficamos muito felizes por ter você conosco e esperamos que aproveite sua experiência!
+Se você tiver alguma dúvida ou problema, não hesite em entrar em contato conosco por este e-mail: support@thebooksclub.com.

@@ -1,0 +1,4 @@
+Bonjour {{ username }}
+Merci de t’être inscrit à The Books Club. Merci de confirmer ton adresse e-mail en cliquant sur ce lien : {{ link }}.
+Nous sommes très heureux que tu nous rejoignes et nous espérons que tu passeras un excellent moment parmi nous !
+Si tu as une question ou un problème, n’hésite pas à nous contacter à cette adresse : support@thebooksclub.com.

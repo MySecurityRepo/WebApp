@@ -1,0 +1,6 @@
+Salve {{ username }}
+Questa è un'email da The Books Club.
+Ci dispiace per la tua decisione di cancellare il tuo account.
+Cliccando questo link completerai il processo di richiesta di eliminazione del tuo account: {{ link }}.
+Se dovessi riaccedere alla piattaforma il processo sarà interrotto e il tuo account sarà riabilitato.
+Se avessi qualche domanda non esitare a contattarci a questo indirizzo email: support@thebooksclub.com.
