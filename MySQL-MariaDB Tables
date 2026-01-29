@@ -1,0 +1,374 @@
+MariaDB [project]> show tables;
++---------------------+
+| Tables_in_project   |
++---------------------+
+| blacklisted_emails  |
+| blocked_users       |
+| comment             |
+| comment_attachments |
+| comment_reactions   |
+| favorite_users      |
+| file_uploads        |
+| message_attachments |
+| message_reactions   |
+| messages            |
+| notifications       |
+| post                |
+| post_attachments    |
+| post_reactions      |
+| thread_users        |
+| threads             |
+| user                |
+| user_attachments    |
++---------------------+
+
+
+
+MariaDB [project]> show create table blacklisted_emails \G;
+*************************** 1. row ***************************
+       Table: blacklisted_emails
+Create Table: CREATE TABLE `blacklisted_emails` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_blackliste_emails` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table blocked_users \G;
+*************************** 1. row ***************************
+       Table: blocked_users
+Create Table: CREATE TABLE `blocked_users` (
+  `blocker_id` bigint(20) NOT NULL,
+  `blocked_id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`blocker_id`,`blocked_id`),
+  KEY `idx_blocks_blocked` (`blocked_id`),
+  CONSTRAINT `fk_blocked` FOREIGN KEY (`blocked_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_blocker` FOREIGN KEY (`blocker_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `no_self_block` CHECK (`blocker_id` <> `blocked_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+
+MariaDB [project]> show create table comment \G;
+*************************** 1. row ***************************
+       Table: comment
+Create Table: CREATE TABLE `comment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `post_id` bigint(20) NOT NULL,
+  `author_id` bigint(20) NOT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `created` datetime NOT NULL,
+  `parent_id` bigint(20) DEFAULT NULL,
+  `likes` bigint(20) NOT NULL DEFAULT 0,
+  `dislikes` bigint(20) NOT NULL DEFAULT 0,
+  `n_replies` bigint(20) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `author_id` (`author_id`),
+  KEY `parent_id` (`parent_id`),
+  KEY `idx_comments_post_parent` (`post_id`,`parent_id`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`author_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `comment_ibfk_3` FOREIGN KEY (`parent_id`) REFERENCES `comment` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=67020 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table comment_attachments \G;
+*************************** 1. row ***************************
+       Table: comment_attachments
+Create Table: CREATE TABLE `comment_attachments` (
+  `comment_id` bigint(20) NOT NULL,
+  `file_upload_id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`comment_id`,`file_upload_id`),
+  KEY `fk_comment_att_upload` (`file_upload_id`),
+  CONSTRAINT `fk_comment_att_comment` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_comment_att_upload` FOREIGN KEY (`file_upload_id`) REFERENCES `file_uploads` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table comment_reactions \G;
+*************************** 1. row ***************************
+       Table: comment_reactions
+Create Table: CREATE TABLE `comment_reactions` (
+  `user_id` bigint(20) NOT NULL,
+  `comment_id` bigint(20) NOT NULL,
+  `value` tinyint(4) NOT NULL CHECK (`value` in (-1,0,1)),
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`user_id`,`comment_id`),
+  KEY `idx_creactions_comment_value` (`comment_id`,`value`),
+  CONSTRAINT `fk_comment_react_comment` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_comment_react_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `ck_comment_reaction_value` CHECK (`value` in (-1,0,1))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table favorite_users \G;
+*************************** 1. row ***************************
+       Table: favorite_users
+Create Table: CREATE TABLE `favorite_users` (
+  `liker_id` bigint(20) NOT NULL,
+  `liked_id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`liker_id`,`liked_id`),
+  KEY `idx_favorite_users_liked_liker` (`liked_id`,`liker_id`),
+  CONSTRAINT `fk_liked` FOREIGN KEY (`liked_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_liker` FOREIGN KEY (`liker_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `no_self_block` CHECK (`liker_id` <> `liked_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table file_uploads \G;
+*************************** 1. row ***************************
+       Table: file_uploads
+Create Table: CREATE TABLE `file_uploads` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL,
+  `path` varchar(255) NOT NULL,
+  `mime` varchar(64) NOT NULL,
+  `size_bytes` bigint(20) unsigned DEFAULT NULL,
+  `width` int(10) unsigned DEFAULT NULL,
+  `height` int(10) unsigned DEFAULT NULL,
+  `duration_sec` int(10) unsigned DEFAULT NULL,
+  `variants` longtext DEFAULT NULL CHECK (json_valid(`variants`)),
+  `status` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+  `task_id` varchar(100) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `w_path` varchar(255) DEFAULT NULL,
+  `w_variants` longtext DEFAULT NULL,
+  `filename` varchar(80) DEFAULT NULL,
+  `is_ondisk` tinyint(1) DEFAULT 1,
+  `thumbnail` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_file_uploads_user_id` (`user_id`),
+  KEY `idx_file_uploads_status` (`status`),
+  CONSTRAINT `fk_file_uploads_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=31772 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table message_attachments \G;
+*************************** 1. row ***************************
+       Table: message_attachments
+Create Table: CREATE TABLE `message_attachments` (
+  `message_id` bigint(20) NOT NULL,
+  `file_upload_id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`message_id`,`file_upload_id`),
+  KEY `fk_message_att_upload` (`file_upload_id`),
+  CONSTRAINT `fk_message_att_message` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_message_att_upload` FOREIGN KEY (`file_upload_id`) REFERENCES `file_uploads` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table message_reactions \G;
+*************************** 1. row ***************************
+       Table: message_reactions
+Create Table: CREATE TABLE `message_reactions` (
+  `user_id` bigint(20) NOT NULL,
+  `message_id` bigint(20) NOT NULL,
+  `created` datetime NOT NULL,
+  `emoji` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`user_id`,`message_id`),
+  KEY `idx_creactions_comment_value` (`message_id`),
+  CONSTRAINT `fk_message_react_comment` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_message_react_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table messages \G;
+*************************** 1. row ***************************
+       Table: messages
+Create Table: CREATE TABLE `messages` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `thread_id` bigint(20) NOT NULL,
+  `sender_id` bigint(20) NOT NULL,
+  `text` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `parent_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `thread_id` (`thread_id`),
+  KEY `sender_id` (`sender_id`),
+  KEY `messages_ibfk_3` (`parent_id`),
+  CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`thread_id`) REFERENCES `threads` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`sender_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `messages_ibfk_3` FOREIGN KEY (`parent_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=686 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table notifications \G;
+*************************** 1. row ***************************
+       Table: notifications
+Create Table: CREATE TABLE `notifications` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL,
+  `actor_id` bigint(20) NOT NULL,
+  `parent_post_id` bigint(20) DEFAULT NULL,
+  `parent_comment_id` bigint(20) DEFAULT NULL,
+  `comment_id` bigint(20) NOT NULL,
+  `action` enum('reply','mention') NOT NULL,
+  `is_read` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `parent_text` varchar(50) DEFAULT NULL,
+  `parent_post_slug` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_user_comment_action` (`user_id`,`comment_id`,`action`),
+  KEY `idx_user_unread_created` (`user_id`,`is_read`,`created_at`),
+  KEY `idx_parent_post` (`parent_post_id`,`created_at`),
+  KEY `idx_parent_comment` (`parent_comment_id`,`created_at`),
+  KEY `fk_notif_actor` (`actor_id`),
+  KEY `fk_notif_comment` (`comment_id`),
+  CONSTRAINT `fk_notif_actor` FOREIGN KEY (`actor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_notif_comment` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_notif_parent_comment` FOREIGN KEY (`parent_comment_id`) REFERENCES `comment` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_notif_parent_post` FOREIGN KEY (`parent_post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_notif_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `chk_at_least_one_parent` CHECK (`parent_post_id` is not null or `parent_comment_id` is not null)
+) ENGINE=InnoDB AUTO_INCREMENT=379 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table post \G;
+*************************** 1. row ***************************
+       Table: post
+Create Table: CREATE TABLE `post` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `author_id` bigint(20) NOT NULL,
+  `created` datetime NOT NULL,
+  `title` varchar(40) NOT NULL,
+  `body` mediumtext DEFAULT NULL,
+  `likes` bigint(20) NOT NULL DEFAULT 0,
+  `category` int(11) DEFAULT NULL,
+  `slug` varchar(60) DEFAULT NULL,
+  `is_modified` tinyint(1) DEFAULT 0,
+  `n_comments` bigint(20) NOT NULL DEFAULT 0,
+  `dislikes` bigint(20) NOT NULL DEFAULT 0,
+  `lang` varchar(5) NOT NULL DEFAULT 'en' CHECK (`lang` in ('en','it','fr','es','de','pt','ru','zh','ja','ar','hi')),
+  PRIMARY KEY (`id`),
+  KEY `author_id` (`author_id`),
+  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table post_attachments \G;
+*************************** 1. row ***************************
+       Table: post_attachments
+Create Table: CREATE TABLE `post_attachments` (
+  `post_id` bigint(20) NOT NULL,
+  `file_upload_id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`post_id`,`file_upload_id`),
+  KEY `fk_post_att_upload` (`file_upload_id`),
+  CONSTRAINT `fk_post_att_post` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_post_att_upload` FOREIGN KEY (`file_upload_id`) REFERENCES `file_uploads` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table post_reactions \G;
+*************************** 1. row ***************************
+       Table: post_reactions
+Create Table: CREATE TABLE `post_reactions` (
+  `user_id` bigint(20) NOT NULL,
+  `post_id` bigint(20) NOT NULL,
+  `value` tinyint(4) NOT NULL CHECK (`value` in (-1,0,1)),
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`user_id`,`post_id`),
+  KEY `idx_preactions_post_value` (`post_id`,`value`),
+  CONSTRAINT `fk_react_post` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_react_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `ck_reaction_value` CHECK (`value` in (-1,0,1))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table thread_users \G;
+*************************** 1. row ***************************
+       Table: thread_users
+Create Table: CREATE TABLE `thread_users` (
+  `thread_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `last_read_message_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`thread_id`,`user_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `thread_users_ibfk_1` FOREIGN KEY (`thread_id`) REFERENCES `threads` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `thread_users_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table threads \G;
+*************************** 1. row ***************************
+       Table: threads
+Create Table: CREATE TABLE `threads` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(40) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `last_message_id` bigint(20) DEFAULT NULL,
+  `last_message_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_threads_last_msg` (`last_message_id`),
+  CONSTRAINT `fk_threads_last_msg` FOREIGN KEY (`last_message_id`) REFERENCES `messages` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=156 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table user \G;
+*************************** 1. row ***************************
+       Table: user
+Create Table: CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `surname` varchar(40) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `bio` mediumtext DEFAULT NULL,
+  `likes` double DEFAULT NULL,
+  `is_active` tinyint(1) DEFAULT 0,
+  `reset_token_issued_at` datetime NOT NULL,
+  `sex` int(11) DEFAULT 0,
+  `is_suspended` tinyint(1) DEFAULT 0,
+  `is_tobedeleted` tinyint(1) DEFAULT 0,
+  `lang` varchar(5) NOT NULL DEFAULT 'en' CHECK (`lang` in ('en','it','fr','es','de','pt','ru','zh','ja','ar','hi')),
+  `is_premium` tinyint(1) NOT NULL DEFAULT 0,
+  `delete_request_date` datetime DEFAULT NULL,
+  `moderation_date` datetime DEFAULT NULL,
+  `is_moderated` tinyint(1) DEFAULT 0,
+  `subscription_provider` varchar(20) DEFAULT NULL,
+  `customer_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`),
+  KEY `idx_costumer_id` (`customer_id`) USING HASH
+) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
+MariaDB [project]> show create table user_attachments \G;
+*************************** 1. row ***************************
+       Table: user_attachments
+Create Table: CREATE TABLE `user_attachments` (
+  `user_id` bigint(20) NOT NULL,
+  `file_upload_id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`user_id`,`file_upload_id`),
+  KEY `fk_bio_att_upload` (`file_upload_id`),
+  CONSTRAINT `fk_bio_att_upload` FOREIGN KEY (`file_upload_id`) REFERENCES `file_uploads` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_bio_att_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci
+
+
+
