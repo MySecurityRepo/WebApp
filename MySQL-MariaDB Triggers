@@ -1,0 +1,161 @@
+MariaDB [project]> SHOW TRIGGERS FROM project \G;
+*************************** 1. row ***************************
+             Trigger: trg_comment_ai
+               Event: INSERT
+               Table: comment
+           Statement: BEGIN
+  UPDATE `post`
+  SET `n_comments` = `n_comments` + 1
+  WHERE `id` = NEW.`post_id`;
+END
+              Timing: AFTER
+             Created: 2025-08-21 04:22:25.33
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
+*************************** 2. row ***************************
+             Trigger: trg_comment_ad
+               Event: DELETE
+               Table: comment
+           Statement: BEGIN
+  UPDATE `post`
+  SET `n_comments` = GREATEST(0, `n_comments` - 1)
+  WHERE `id` = OLD.`post_id`;
+END
+              Timing: AFTER
+             Created: 2025-08-21 04:22:50.97
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
+*************************** 3. row ***************************
+             Trigger: trg_comment_reactions_ai
+               Event: INSERT
+               Table: comment_reactions
+           Statement: BEGIN
+  IF NEW.value = 1 THEN
+    UPDATE comment
+    SET likes = likes + 1
+    WHERE id = NEW.comment_id;
+  ELSEIF NEW.value = -1 THEN
+    UPDATE comment
+    SET dislikes = dislikes + 1
+    WHERE id = NEW.comment_id;
+  END IF; 
+END
+              Timing: AFTER
+             Created: 2025-08-21 00:37:35.53
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
+*************************** 4. row ***************************
+             Trigger: trg_comment_reactions_au
+               Event: UPDATE
+               Table: comment_reactions
+           Statement: BEGIN
+  IF OLD.value <> NEW.value THEN
+    UPDATE comment
+    SET
+      likes    = GREATEST(0, likes    + (NEW.value =  1) - (OLD.value =  1)),
+      dislikes = GREATEST(0, dislikes + (NEW.value = -1) - (OLD.value = -1))
+    WHERE id = NEW.comment_id;
+  END IF;
+END
+              Timing: AFTER
+             Created: 2025-08-21 00:38:44.51
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
+*************************** 5. row ***************************
+             Trigger: trg_comment_reactions_ad
+               Event: DELETE
+               Table: comment_reactions
+           Statement: BEGIN
+  IF OLD.value = 1 THEN
+    UPDATE comment
+    SET likes = GREATEST(0, likes - 1)
+    WHERE id = OLD.comment_id;
+  ELSEIF OLD.value = -1 THEN
+    UPDATE comment
+    SET dislikes = GREATEST(0, dislikes - 1)
+    WHERE id = OLD.comment_id;
+  END IF; 
+END
+              Timing: AFTER
+             Created: 2025-08-21 00:40:29.63
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
+*************************** 6. row ***************************
+             Trigger: trg_post_reactions_ai
+               Event: INSERT
+               Table: post_reactions
+           Statement: BEGIN
+  IF NEW.value = 1 THEN
+    UPDATE post
+    SET likes = likes + 1
+    WHERE id = NEW.post_id;
+  ELSEIF NEW.value = -1 THEN
+    UPDATE post
+    SET dislikes = dislikes + 1
+    WHERE id = NEW.post_id;
+  END IF; 
+END
+              Timing: AFTER
+             Created: 2025-08-21 00:47:41.89
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
+*************************** 7. row ***************************
+             Trigger: trg_post_reactions_au
+               Event: UPDATE
+               Table: post_reactions
+           Statement: BEGIN
+  IF OLD.value <> NEW.value THEN
+    UPDATE post
+    SET
+      likes    = GREATEST(0, likes    + (NEW.value =  1) - (OLD.value =  1)),
+      dislikes = GREATEST(0, dislikes + (NEW.value = -1) - (OLD.value = -1))
+    WHERE id = NEW.post_id;
+  END IF;
+END
+              Timing: AFTER
+             Created: 2025-08-21 00:47:53.35
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
+*************************** 8. row ***************************
+             Trigger: trg_post_reactions_ad
+               Event: DELETE
+               Table: post_reactions
+           Statement: BEGIN
+  IF OLD.value = 1 THEN
+    UPDATE post
+    SET likes = GREATEST(0, likes - 1)
+    WHERE id = OLD.post_id;
+  ELSEIF OLD.value = -1 THEN
+    UPDATE post
+    SET dislikes = GREATEST(0, dislikes - 1)
+    WHERE id = OLD.post_id;
+  END IF; 
+END
+              Timing: AFTER
+             Created: 2025-08-21 00:48:08.89
+            sql_mode: STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+             Definer: Emanuele@localhost
+character_set_client: utf8mb4
+collation_connection: utf8mb4_uca1400_ai_ci
+  Database Collation: utf8mb4_unicode_ci
