@@ -1,5 +1,5 @@
 # WebApp
-This repository contains the source code of a web application i created recently (with the help of the AI).
+This repository contains the source code of a web application i created recently.
 
 The application is not in production anymore, otherwise i wouldn't share the code :) 
 
